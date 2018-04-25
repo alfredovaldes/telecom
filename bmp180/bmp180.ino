@@ -1,11 +1,10 @@
 #include <Wire.h>
 #include <Adafruit_BMP085.h>
 Adafruit_BMP085 bmp;
-
 void setup() {
   Serial.begin(9600);
-  Wire.pins(0, 2);
-  Wire.begin(0, 2);
+  Wire.pins(D1,D2);
+  Wire.begin(D1,D2);
   if (!bmp.begin()) {
     Serial.println("No BMP180 / BMP085");// we dont wait for this
     while (1) {}
@@ -36,9 +35,10 @@ void loop() {
   String t = "T=" + String(avgTemp) + " *C";
   String  p = "P=" + String(avgPres) + " Pa";
   String a = "A=" + String(avgAlti) + " m";// insert pressure at sea level
-
+  String Luz = String(analogRead(A0));
   Serial.println(t);
   Serial.println(p);
   Serial.println(a);
+  Serial.println(Luz);
   delay(2000);
 }

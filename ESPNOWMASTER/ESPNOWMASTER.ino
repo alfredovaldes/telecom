@@ -54,7 +54,7 @@ void loop() {
 
   //***DATOS A ENVIAR***//
   ESTRUCTURA_DATOS ED;                     
-    ED.potenciometro = 23456;
+    ED.potenciometro = dht.readHumidity();
     Serial.print("Dato potenciometro: "); Serial.print(ED.potenciometro);
     delay(20);
     ED.tiempo = millis();
