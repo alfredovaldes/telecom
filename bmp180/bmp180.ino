@@ -2,7 +2,7 @@
 #include <Adafruit_BMP085.h>
 Adafruit_BMP085 bmp;
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Wire.pins(D1,D2);
   Wire.begin(D1,D2);
   if (!bmp.begin()) {
